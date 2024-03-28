@@ -1,0 +1,27 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #F1F0ED;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    width: 140px;
+    height: 140px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #303032;
+    font-size: 20px;
+}

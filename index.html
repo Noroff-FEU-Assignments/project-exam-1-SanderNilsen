@@ -9,18 +9,25 @@
       content="Blog showcasing the breathtaking beauty of the Lofoten Islands"
     />
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="js/script.js" defer></script>
   </head>
   <body>
-    
     <header>
       <a href="index.html">
         <img class="logo" src="images/logo.png" alt="lofotenpeaks logo" />
       </a>
       <nav>
-        <a href="index.html">HOME</a>
-        <a href="blogposts.html">BLOG POSTS</a>
-        <a href="contact.html">CONTACT</a>
-        <a href="about.html">ABOUT</a>
+        <div class="hamburger-menu">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+        </div>
+        <ul class="nav-links">
+          <a href="index.html">HOME</a>
+          <a href="blogposts.html">BLOG POSTS</a>
+          <a href="contact.html">CONTACT</a>
+          <a href="about.html">ABOUT</a>
+        </ul>
       </nav>
     </header>
 
@@ -31,7 +38,72 @@
           src="images/homebanner.png"
           alt="panorama overviewing the Lofoten peaks"
         />
-        <h1>Uncover Lofoten's Majestic Peaks</h1>
+        <h1 class="fontsizemobile-h1">Uncover Lofoten's Majestic Peaks</h1>
+      </div>
+
+      <div class="homeparagraph-container">
+        <p class="lp-color homeparagraph fontsizemobile-p">
+          Situated at the latitude of 68 degrees north, Lofoten is an
+          archipelago nestled off the northwest coast of Norway, renowned for
+          its dramatic mountain peaks, crystal-clear fjords, and charming
+          fishing villages.
+        </p>
+      </div>
+
+      <div class="latest-posts-container">
+        <div class="latest-post-arrows">
+          <h2 class="lp-color latest-posts-h2">LATEST POSTS</h2>
+          <div class="arrow">&larr; &rarr;</div>
+        </div>
+        <div class="line"></div>
+        <div class="article-slider">
+          <article>
+            <img src="images/kabelvåg.png" />
+            <h3 class="lp-color fontsizemobile-h3">
+              Embracing the Enchantment: Exploring the Nature of Kabelvåg
+            </h3>
+            <p class="lp-color">
+              Nestled within the captivating archipelago of the Lofoten Islands,
+              Kabelvåg emerges as a beacon of natural splendor, offering
+              visitors an enchanting tapestry of landscapes to explore. Situated
+              on the northern shores of Austvågøya Island, Kabelvåg boasts a
+              harmonious blend of rugged mountains, serene fjords, and lush
+              greenery, inviting adventurers and nature enthusiasts to immerse
+              themselves in its breathtaking beauty.
+            </p>
+          </article>
+          <article>
+            <img src="images/delpsheia.png" />
+            <h3 class="lp-color fontsizemobile-h3">
+              Captivating Vistas: The Roadside Charm of Delpsheia
+            </h3>
+            <p class="lp-color">
+              Perched atop the picturesque Delpsheia hillside, overlooking a
+              winding road that traces its way through the breathtaking
+              landscapes of Lofoten, lies a vantage point of unparalleled
+              beauty. This hidden gem offers a panoramic view that encapsulates
+              the essence of the region's rugged coastal terrain, majestic
+              peaks, and azure waters, inviting travelers to pause and immerse
+              themselves in the awe-inspiring vista that unfolds before them.
+            </p>
+          </article>
+          <article>
+            <img src="images/nordfjellet.png" />
+            <h3 class="lp-color fontsizemobile-h3">
+              Atop Nordfjellet: A Majestic Vista Overlooking Rørvikstranda in
+              Lofoten
+            </h3>
+            <p class="lp-color">
+              Nordfjellet, a towering sentinel in the heart of the Lofoten
+              archipelago, stands as a testament to the raw, unbridled beauty of
+              Norway's coastal landscapes. Perched atop its windswept summit,
+              one is granted a perspective unlike any other, where the rugged
+              majesty of the mountains converges with the tranquil serenity of
+              the sea, and the golden sands of Rørvikstranda stretch out as if
+              reaching towards the horizon.
+            </p>
+          </article>
+        </div>
       </div>
     </main>
 
@@ -47,6 +119,5 @@
         </a>
       </div>
     </footer>
-
   </body>
 </html>

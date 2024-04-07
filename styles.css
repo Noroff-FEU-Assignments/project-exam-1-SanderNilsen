@@ -169,6 +169,57 @@ article img {
     width: 100%;
 }
 
+.blogposts-container {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.article-preview {
+    background-color: white;
+    padding: 30px;
+    max-width: 270px;
+}
+
+.article-preview-wrapper {
+    padding: 20px;
+}
+
+.blogposts-h1 {
+    padding: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.viewmore-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+.viewmore-button {
+    border-style: none;
+    background-color: white;
+    border-color: #303032;
+    border-radius: 5px;
+    color: #303032;
+    cursor: pointer;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.readmore-button {
+    border-style: none;
+    background-color: white;
+    padding: 0px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #303032;
+    cursor: pointer;
+}
+
 /**** Footer ****/
 
 .footer-container {
@@ -243,4 +294,7 @@ article img {
         transition: transform 0.5s ease;
       }
 
+    .article-preview-wrapper {
+        padding: 10px;
+    }
 }

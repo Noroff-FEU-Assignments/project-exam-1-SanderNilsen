@@ -125,13 +125,19 @@ main {
     margin-bottom: 20px;
 }
 
-.latest-post-arrows {
+.latest-post-wrapper {
     display: flex;
     justify-content: space-between;
 }
 
+.arrows {
+    display: flex;
+    gap: 10px;
+}
+
 .arrow {
-    font-weight: 600;
+    cursor: pointer;
+    font-size: 30px;
 }
 
 .latest-posts-h2 {
@@ -150,7 +156,14 @@ main {
     gap: 20px;
     text-align: center;
     padding-top: 20px;
+    overflow: hidden;
+    position: relative;
 }
+
+.article-slider article {
+    flex: 0 0 calc(95% / 3);
+    transition: transform 0.5s ease;
+  }
 
 article img {
     width: 100%;
@@ -173,10 +186,16 @@ article img {
  
 @media (max-width: 870px) {
 
+    nav {
+        padding-right: 15px;
+    }
+
     .logo {
          height: 100px;
          width: 100px;
+         padding-left: 15px;
     }
+
     .hamburger-menu {
         display: flex;
     } 
@@ -218,5 +237,10 @@ article img {
     .fontsizemobile-p {
         font-size: 16px;
     }
+   
+    .article-slider article {
+        flex: 0 0 calc(96% / 2);
+        transition: transform 0.5s ease;
+      }
 
 }

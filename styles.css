@@ -218,6 +218,28 @@ article img {
     text-transform: uppercase;
     color: #303032;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.author {
+    font-style: italic;
+}
+
+.post-container {
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.post-wrapper {
+    background-color: white;
+    padding: 50px;
+    line-height: 1.5;
+    margin-top: -5px;
+}
+
+.post-wrapper p {
+   margin: 0px;
 }
 
 /**** Footer ****/
@@ -296,5 +318,14 @@ article img {
 
     .article-preview-wrapper {
         padding: 10px;
+    }
+
+    .post-wrapper {
+        padding: 40px;
+    }
+
+    .post-container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }

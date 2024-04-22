@@ -242,6 +242,47 @@ article img {
    margin: 0px;
 }
 
+.contact-container {
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #303032;
+    border-radius: 5px;
+}
+
+.contact-button {
+    padding: 10px 20px;
+    background-color:#303032;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+
+}
+
+button:hover {
+    background-color:#525252;
+}
+
+.error {
+    color: red;
+}
+
 /**** Footer ****/
 
 .footer-container {
@@ -327,5 +368,9 @@ article img {
     .post-container {
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .contact-container {
+        max-width: 300px;
     }
 }

@@ -7,6 +7,7 @@
     <meta name="description" content="Contact us" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="js/script.js" defer></script>
+    <script src="js/contact.js" defer></script>
   </head>
 
   <body>
@@ -31,6 +32,33 @@
 
     <main>
      
+      <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form id="contactform" onsubmit="validateForm(event)">
+            <div class="form">
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Full Name*" id="name" name="name" required>
+                <span class="error" id="nameError"></span>
+            </div>
+            <div class="form">
+                <label for="email">Email Address:</label>
+                <input type="email" placeholder="E-mail*" id="email" name="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div class="form">
+                <label for="subject">Subject:</label>
+                <input type="text" placeholder="Subject more than 15 characters*" id="subject" name="subject" required>
+                <span class="error" id="subjectError"></span>
+            </div>
+            <div class="form">
+                <label for="message">Message:</label>
+                <textarea id="message" placeholder="Message more than 25 characters*" name="message" required></textarea>
+                <span class="error" id="messageError"></span>
+            </div>
+            <button class="contact-button" type="submit">Submit</button>
+        </form>
+    </div>
+
     </main>
 
     <footer>

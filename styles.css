@@ -227,9 +227,7 @@ article img {
 }
 
 .post-container {
-    padding-top: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 20px 40px 40px 40px;
 }
 
 .post-wrapper {

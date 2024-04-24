@@ -84,13 +84,13 @@ main {
     flex: 1;
 }
 
-.homebanner {
+.banner {
     position: relative;
 }
 
-.homebanner h1 {
+.banner h1 {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -98,21 +98,22 @@ main {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-weight: 100;
     z-index: -1;
+    width: 100%;
 }
 
-.homebanner-img {
+.banner-img {
     width: 100%;
     z-index: -1;
     position: relative;
 }
 
-.homeparagraph-container {
+.paragraph-container {
     display: flex;
     justify-content: center;  
     padding: 20px;
 }
 
-.homeparagraph {
+.paragraph {
     font-style: italic;
     text-align: center;
     max-width: 600px;
@@ -277,10 +278,16 @@ textarea {
 
 button:hover {
     background-color:#525252;
+    color: white;
 }
 
 .error {
     color: red;
+}
+
+.map {
+    width: 100%;
+    margin-bottom: 40px;
 }
 
 /**** Footer ****/
@@ -372,5 +379,9 @@ button:hover {
 
     .contact-container {
         max-width: 300px;
+    }
+
+    .banner h1 {
+        top: 30%;
     }
 }

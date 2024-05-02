@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const modalImage = document.createElement('img');
             modalImage.src = imageUrl;
+            modalImage.className = 'modal-image';
             modalImage.alt = 'Modal Image';
 
             modalContent.appendChild(closeModalBtn);

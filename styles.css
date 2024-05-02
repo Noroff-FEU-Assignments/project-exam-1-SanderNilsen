@@ -82,6 +82,8 @@ nav a:hover {
 
 main {
     flex: 1;
+    max-width: 1500px;
+    align-self: center;
 }
 
 .banner {
@@ -162,12 +164,20 @@ main {
 }
 
 .article-slider article {
-    flex: 0 0 calc(95% / 3);
+    flex: 0 0 calc(96% / 3);
     transition: transform 0.5s ease;
   }
 
-article img {
-    width: 100%;
+.homearticleimg {
+    width: 100%; 
+    height: 170px; 
+    object-fit: cover;
+}
+
+.post-img {
+    width: 100%; 
+    max-height: 1000px; 
+    object-fit: cover;
 }
 
 .blogposts-container {
@@ -242,8 +252,8 @@ article img {
 }
 
 .contact-container {
-    max-width: 500px;
     margin: 50px auto;
+    width: 800px;
 }
 
 .form {
@@ -308,6 +318,41 @@ button:hover {
     }
   }
 
+  .previewimg {
+    width: 272px; 
+    height: 182px; 
+    object-fit: cover;
+  }
+
+  .modal-container {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+
 /**** Footer ****/
 
 .footer-container {
@@ -318,6 +363,7 @@ button:hover {
 
 .footer-img {
     width: 100%;
+    max-height: 250px;
     margin-bottom: -6px;
 }
 
@@ -378,7 +424,7 @@ button:hover {
     }
    
     .article-slider article {
-        flex: 0 0 calc(96% / 2);
+        flex: 0 0 calc(95% / 2);
         transition: transform 0.5s ease;
       }
 
@@ -402,4 +448,13 @@ button:hover {
     .banner h1 {
         top: 30%;
     }
+
+    .post-img {
+        max-height: 400px;
+    }
+
+    main {
+        align-self: auto;
+    }
+
 }

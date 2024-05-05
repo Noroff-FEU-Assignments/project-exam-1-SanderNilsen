@@ -2,12 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const loader = document.querySelector('.loader');
   const blogPostsContainer = document.querySelector('.blogposts-container');
   const viewMoreButton = document.querySelector('.viewmore-button');
+  const searchInput = document.getElementById('searchInput');
 
   let displayedCount = 0;
   const postsPerPage = 10;
+  let currentSearchTerm = ''; 
 
-  function fetchData(url, page, perPage) {
-    const apiUrl = `${url}?per_page=${perPage}&page=${page}`;
+  function fetchData(url, page, perPage, searchTerm = '') {
+    const apiUrl = `${url}?per_page=${perPage}&page=${page}&search=${searchTerm}`;
     return fetch(apiUrl)
       .then(response => {
         if (!response.ok) {
@@ -53,34 +55,47 @@ document.addEventListener('DOMContentLoaded', function () {
     return articleElement;
   }
 
-  function displayArticles(articles) {
+  function appendArticles(articles) {
     articles.forEach(article => {
       const articleElement = createArticleElement(article);
-      blogPostsContainer.appendChild(articleElement);
+      blogPostsContainer.appendChild(articleElement); 
+      displayedCount++; 
     });
 
-    loader.style.display = 'none';
+    if (articles.length < postsPerPage) {
+      viewMoreButton.style.display = 'none'; 
+    }
+
+    loader.style.display = 'none'; 
   }
 
-  function loadMoreArticles() {
+  function loadArticlesBySearch(searchTerm) {
     loader.style.display = 'block';
-    const nextPage = Math.floor(displayedCount / postsPerPage) + 1;
+    currentSearchTerm = searchTerm; 
+    const nextPage = Math.ceil(displayedCount / postsPerPage) + 1; 
 
-    fetchData('https://sandernilsen.com/wp-json/wp/v2/posts', nextPage, postsPerPage)
+    fetchData('https://sandernilsen.com/wp-json/wp/v2/posts', nextPage, postsPerPage, searchTerm)
       .then(articles => {
-        displayArticles(articles);
-        displayedCount += articles.length;
-
-        if (articles.length < postsPerPage) {
-          viewMoreButton.style.display = 'none';
-        }
+        appendArticles(articles);
       })
       .catch(error => {
-        console.error('Error loading more articles:', error);
+        console.error('Error loading articles by search:', error);
       });
   }
 
-  loadMoreArticles();
 
-  viewMoreButton.addEventListener('click', loadMoreArticles);
+  loadArticlesBySearch('');
+
+
+  searchInput.addEventListener('input', function (event) {
+    const searchTerm = event.target.value.trim();
+    displayedCount = 0; 
+    blogPostsContainer.innerHTML = ''; 
+    loadArticlesBySearch(searchTerm);
+  });
+
+
+  viewMoreButton.addEventListener('click', function () {
+    loadArticlesBySearch(currentSearchTerm); 
+  });
 });

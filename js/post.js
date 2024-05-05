@@ -60,20 +60,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         fetch(`https://sandernilsen.com/wp-json/wp/v2/posts/${postId}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Failed to fetch post');
-                }
-                return response.json();
-            })
-            .then(async (post) => {
-                const featuredImageUrl = await fetchFeaturedImageUrl(post.featured_media);
-                loader.style.display = 'none';
-                document.title = post.title.rendered;
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch post');
+        }
+        return response.json();
+    })
+    .then(async (post) => {
+        const featuredImageUrl = await fetchFeaturedImageUrl(post.featured_media);
+        loader.style.display = 'none';
+        document.title = post.title.rendered;
+
+        const authorId = post.author;
+        const authorResponse = await fetch(`https://sandernilsen.com/wp-json/wp/v2/users/${authorId}`);
+        if (!authorResponse.ok) {
+            throw new Error('Failed to fetch author');
+        }
+
+        const author = await authorResponse.json();
+        const authorName = author.name;
+
+        const tagIds = post.tags; 
+        const tagPromises = tagIds.map(tagId =>
+            fetch(`https://sandernilsen.com/wp-json/wp/v2/tags/${tagId}`)
+        );
+
+        Promise.all(tagPromises)
+            .then(responses => Promise.all(responses.map(response => response.json())))
+            .then(tags => {
+                const tagNames = tags.map(tag => tag.name).join(', ');
 
                 postContainer.innerHTML = `
                     <h1 class="lp-color">${post.title.rendered}</h1>
-                    <p class="author">Posted on ${new Date(post.date).toLocaleDateString()} by ${post.author}</p>
+                    <p class="author">Posted on ${new Date(post.date).toLocaleDateString()} by ${authorName}</p>
+                    <p class="tags">${tagNames}</p>
                     <img class="post-img" src="${featuredImageUrl}" alt="Featured Image" />
                     <div class="post-wrapper">
                         <p class="lp-color">${post.content.rendered}</p>
@@ -88,9 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             })
-            .catch((error) => {
-                loader.style.display = 'none';
-                console.error('Error fetching post:', error);
-            });
+    })
+    .catch((error) => {
+        loader.style.display = 'none';
+        console.error('Error fetching post:', error);
+    });
+
     }
 })

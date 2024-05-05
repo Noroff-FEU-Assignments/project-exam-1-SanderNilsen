@@ -240,7 +240,7 @@ main {
     font-style: italic;
 }
 
-.post-container {
+.post-container, .comments-section {
     padding: 20px 40px 40px 40px;
 }
 
@@ -252,7 +252,7 @@ main {
 }
 
 .post-wrapper p {
-   margin: 0px;
+   margin: 0px 0px 10px 0px;
 }
 
 .contact-container {
@@ -277,7 +277,7 @@ textarea {
     border-radius: 5px;
 }
 
-.contact-button {
+.contact-button, .comment-button {
     padding: 10px 20px;
     background-color:#303032;
     color: #fff;
@@ -285,7 +285,6 @@ textarea {
     border-radius: 5px;
     cursor: pointer;
     text-transform: uppercase;
-
 }
 
 button:hover {
@@ -362,6 +361,16 @@ button:hover {
     cursor: pointer;
 }
 
+.tags {
+    padding: 5px 10px;
+    background-color:#303032;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    width: fit-content;
+}
 
 /**** Footer ****/
 
@@ -460,9 +469,13 @@ button:hover {
         padding: 40px;
     }
 
-    .post-container {
+    .post-container, .comments-section {
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .comments-section {
+        margin-bottom: 40px;
     }
 
     .contact-container {

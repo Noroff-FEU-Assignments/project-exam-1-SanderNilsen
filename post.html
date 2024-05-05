@@ -9,22 +9,31 @@
     <script src="js/script.js" defer></script>
     <script src="js/post.js" defer></script>
     <!-- Hotjar Tracking Code for LofotenPeaks -->
-<script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:4969373,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 4969373, hjsv: 6 };
+        a = o.getElementsByTagName("head")[0];
+        r = o.createElement("script");
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+    </script>
   </head>
 
   <body>
     <header>
       <a href="index.html">
-        <img class="logo" src="images/LofotenPeaks-Logo-v4.png" alt="lofotenpeaks logo" />
+        <img
+          class="logo"
+          src="images/LofotenPeaks-Logo-v4.png"
+          alt="lofotenpeaks logo"
+        />
       </a>
       <nav>
         <div class="hamburger-menu">
@@ -42,14 +51,30 @@
     </header>
 
     <main>
-       <article class="post-container">
+      <article class="post-container">
         <div class="loader"></div>
-       </article> 
+      </article>
 
+      <section class="comments-section">
+        <div class="post-wrapper">
+          <h2>Comments</h2>
+          <form>
+            <label for="commentName">Your Name:</label>
+            <input type="text" id="commentName" required /><br />
+            <label for="commentContent">Your Comment:</label>
+            <textarea id="commentContent" rows="4" required></textarea><br />
+          </form>
+          <button class="comment-button">Post Comment</button>
+        </div>
+      </section>
     </main>
 
     <footer>
-      <img class="footer-img" src="images/footerv3.png" alt="footer mountains" />
+      <img
+        class="footer-img"
+        src="images/footerv3.png"
+        alt="footer mountains"
+      />
       <div class="footer-container">
         <a href="index.html">
           <img

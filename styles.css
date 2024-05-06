@@ -176,7 +176,7 @@ main {
 
 .post-img {
     width: 100%; 
-    max-height: 1000px; 
+    max-height: 800px; 
     object-fit: cover;
 }
 
@@ -241,7 +241,7 @@ main {
 }
 
 .post-container, .comments-section {
-    padding: 20px 40px 40px 40px;
+    padding: 20px 80px 40px 80px;
 }
 
 .comments-section .post-wrapper  {

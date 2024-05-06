@@ -6,18 +6,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let currentPosition = 0;
 
-  function fetchData(url) {
-      return fetch(url)
-          .then(response => {
-              if (!response.ok) {
-                  throw new Error('Network response was not ok.');
-              }
-              return response.json();
-          })
-          .catch(error => {
-              console.error('Error fetching data:', error);
-              throw error; 
-          });
+  async function fetchData(url) {
+      try {
+          const response = await fetch(url);
+          if (!response.ok) {
+              throw new Error('Network response was not ok.');
+          }
+          return await response.json();
+      } catch (error) {
+          console.error('Error fetching data:', error);
+          throw error;
+      }
   }
 
   function createArticleElement(article) {
@@ -42,12 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
       return articleElement;
   }
-
-  function decodeHtmlEntities(html) {
-    const element = document.createElement('div');
-    element.innerHTML = html;
-    return element.textContent;
-}
 
   function displayArticles(articles) {
       articles.forEach(article => {

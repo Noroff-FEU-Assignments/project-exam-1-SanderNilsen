@@ -52,6 +52,10 @@ document.addEventListener('DOMContentLoaded', function () {
     articleElement.appendChild(imgElement);
     articleElement.appendChild(wrapperElement);
 
+    wrapperElement.addEventListener('click', function () {
+      window.location.href = `post.html?id=${article.id}`;
+  })
+  
     return articleElement;
   }
 

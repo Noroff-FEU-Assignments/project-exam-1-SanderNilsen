@@ -1,3 +1,4 @@
+//Function to validate form input when submitted
 function validateForm(event) {
     event.preventDefault();
 
@@ -11,6 +12,7 @@ function validateForm(event) {
     const subjectError = document.getElementById('subjectError');
     const messageError = document.getElementById('messageError');
 
+    //Clear error messages
     nameError.textContent = '';
     emailError.textContent = '';
     subjectError.textContent = '';
@@ -21,6 +23,7 @@ function validateForm(event) {
         return;
     }
 
+    //Validate email field with regular expression
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         emailError.textContent = 'Invalid email address';

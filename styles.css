@@ -157,6 +157,10 @@ main {
     font-size: 16px;
 }
 
+.latest-article {
+    cursor: pointer;
+}
+
 .line {
     background-color: #303032;
     padding: 0.5px;
@@ -209,6 +213,7 @@ main {
 
 .article-preview-wrapper {
     padding: 20px;
+    cursor: pointer;
 }
 
 .blogposts-h1 {

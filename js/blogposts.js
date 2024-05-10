@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  //Selecting elements from the DOM
   const loader = document.querySelector('.loader');
   const blogPostsContainer = document.querySelector('.blogposts-container');
   const viewMoreButton = document.querySelector('.viewmore-button');
@@ -8,21 +9,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const postsPerPage = 10;
   let currentSearchTerm = ''; 
 
-  function fetchData(url, page, perPage, searchTerm = '') {
+  //Function to fetch data, posts per page, and search term
+  async function fetchData(url, page, perPage, searchTerm = '') {
     const apiUrl = `${url}?per_page=${perPage}&page=${page}&search=${searchTerm}`;
-    return fetch(apiUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok.');
-        }
-        return response.json();
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        throw error;
-      });
+    try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
   }
 
+  //Function to create HTML elements
   function createArticleElement(article) {
     const articleElement = document.createElement('article');
     articleElement.classList.add('article-preview');
@@ -46,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
     readMoreLink.textContent = 'Read More';
     readMoreLink.classList.add('readmore-button');
 
+    //Link to post-page when the wrapper is clicked
+    wrapperElement.addEventListener('click', function () {
+      window.location.href = `post.html?id=${article.id}`;
+  })
+    //Article structure
     wrapperElement.appendChild(titleElement);
     wrapperElement.appendChild(contentElement);
     wrapperElement.appendChild(readMoreLink);
@@ -53,13 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
     articleElement.appendChild(imgElement);
     articleElement.appendChild(wrapperElement);
 
-    wrapperElement.addEventListener('click', function () {
-      window.location.href = `post.html?id=${article.id}`;
-  })
-  
     return articleElement;
   }
-
+  //Append fetched articles to the blog container
   function appendArticles(articles) {
     articles.forEach(article => {
       const articleElement = createArticleElement(article);
@@ -67,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
       displayedCount++; 
     });
 
+    //Hide the 'View More' button if fetched articles are less than the perPage count
     if (articles.length < postsPerPage) {
       viewMoreButton.style.display = 'none'; 
     }
@@ -74,23 +78,29 @@ document.addEventListener('DOMContentLoaded', function () {
     loader.style.display = 'none'; 
   }
 
+  //Load articles based on search
   function loadArticlesBySearch(searchTerm) {
     loader.style.display = 'block';
     currentSearchTerm = searchTerm; 
-    const nextPage = Math.ceil(displayedCount / postsPerPage) + 1; 
+    const nextPage = (displayedCount / postsPerPage) + 1; 
 
     fetchData('https://sandernilsen.com/wp-json/wp/v2/posts', nextPage, postsPerPage, searchTerm)
-      .then(articles => {
+    .then(articles => {
+      if (articles.length > 0) {
         appendArticles(articles);
-      })
-      .catch(error => {
-        console.error('Error loading articles by search:', error);
-      });
-  }
 
+      } else {
+        const message = document.createElement('p');
+        message.textContent = 'No posts found for this search.';
+        blogPostsContainer.appendChild(message);
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching articles:', error);
+    })
+}
 
   loadArticlesBySearch('');
-
 
   searchInput.addEventListener('input', function (event) {
     const searchTerm = event.target.value.trim();
@@ -98,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
     blogPostsContainer.innerHTML = ''; 
     loadArticlesBySearch(searchTerm);
   });
-
 
   viewMoreButton.addEventListener('click', function () {
     loadArticlesBySearch(currentSearchTerm); 

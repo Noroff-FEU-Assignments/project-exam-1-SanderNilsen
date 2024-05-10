@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <title>Post</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Blog post" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Blog post" >
+    <link rel="stylesheet" type="text/css" href="styles.css" >
     <script src="js/script.js" defer></script>
     <script src="js/post.js" defer></script>
     <!-- Hotjar Tracking Code for LofotenPeaks -->
@@ -33,7 +33,7 @@
           class="logo"
           src="images/LofotenPeaks-Logo-v4.png"
           alt="lofotenpeaks logo"
-        />
+        >
       </a>
       <nav>
         <div class="hamburger-menu">
@@ -41,12 +41,20 @@
           <div class="bar bar2"></div>
           <div class="bar bar3"></div>
         </div>
-        <ul class="nav-links">
-          <a href="index.html">HOME</a>
-          <a href="blogposts.html">BLOG POSTS</a>
-          <a href="contact.html">CONTACT</a>
-          <a href="about.html">ABOUT</a>
-        </ul>
+        <li class="nav-links">
+          <ul>
+            <a href="index.html">HOME</a>
+          </ul>
+          <ul>
+            <a href="blogposts.html">BLOG POSTS</a>
+          </ul>
+          <ul>
+            <a href="contact.html">CONTACT</a>
+          </ul>
+          <ul>
+            <a href="about.html">ABOUT</a>
+          </ul>
+        </li>
       </nav>
     </header>
 
@@ -60,9 +68,9 @@
           <h2>Comments</h2>
           <form>
             <label for="commentName">Your Name:</label>
-            <input type="text" id="commentName" required /><br />
+            <input type="text" id="commentName" required /><br>
             <label for="commentContent">Your Comment:</label>
-            <textarea id="commentContent" rows="4" required></textarea><br />
+            <textarea id="commentContent" rows="4" required></textarea><br>
           </form>
           <button class="comment-button">Post Comment</button>
         </div>
@@ -74,14 +82,14 @@
         class="footer-img"
         src="images/footerv3.png"
         alt="footer mountains"
-      />
+      >
       <div class="footer-container">
         <a href="index.html">
           <img
             class="logo"
             src="images/logo-white.png"
             alt="lofotenpeaks footer logo"
-          />
+          >
         </a>
       </div>
     </footer>

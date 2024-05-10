@@ -432,25 +432,24 @@ button:hover {
 
     .nav-links.active {
         display: flex;
-        align-items: flex-end;
-        flex-direction: column;
         position: absolute;
         background-color:#F1F0ED;
-        box-shadow: 0px 9px 8px 0px rgba(0, 0, 0, 0.5);     
-        gap: 0px; 
+        box-shadow: 0px 9px 8px 0px rgba(0, 0, 0, 0.5);
     } 
 
     nav li {
         position: absolute;
         top: 104px;
         right: 0px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        gap: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
       }
 
     nav ul {
-        padding-left:20px
+        padding-left: 20px;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
       }  
 
     .search {

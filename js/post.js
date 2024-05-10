@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h1 class="lp-color">${post.title.rendered}</h1>
                     <p class="author">Posted on ${new Date(post.date).toLocaleDateString()} by ${authorName}</p>
                     <p class="tags">${tagNames}</p>
-                    <img class="post-img" src="${featuredImageUrl}" alt="Featured Image" />
+                    <img class="post-img" src="${featuredImageUrl}" alt="Main post Image" />
                     <div class="post-wrapper">
                         <p class="lp-color">${post.content.rendered}</p>
                     </div>

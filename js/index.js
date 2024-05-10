@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       imgElement.classList.add('homearticleimg');
       imgElement.src = article._embedded['wp:featuredmedia'][0].source_url;
+      imgElement.alt = "Latest blog post image"
       titleElement.textContent = article.title.rendered;
       paragraphElement.innerHTML = article.excerpt.rendered;
 

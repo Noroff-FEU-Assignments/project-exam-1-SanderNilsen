@@ -30,11 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const imgElement = document.createElement('img');
     imgElement.classList.add('previewimg');
     imgElement.src = article.featured_media_src_url;
+    imgElement.alt = "Blog post image"
 
     const wrapperElement = document.createElement('div');
     wrapperElement.classList.add('article-preview-wrapper');
 
-    const titleElement = document.createElement('h3');
+    const titleElement = document.createElement('h2');
     titleElement.textContent = article.title.rendered;
 
     const contentElement = document.createElement('p');

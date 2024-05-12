@@ -446,7 +446,7 @@ button:hover {
 
     .nav-links {
         display: none;
-      }
+    }
 
     .nav-links.active {
         display: flex;
@@ -465,7 +465,15 @@ button:hover {
         right: 0px;
         padding-top: 15px;
         padding-bottom: 15px;
-      }
+    }
+    
+    nav a::before {
+        display: none;
+    }
+      
+    nav a:hover::before {
+        display:none;
+    }  
 
     .search {
         width: 94%;

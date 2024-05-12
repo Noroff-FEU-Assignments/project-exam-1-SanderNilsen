@@ -60,31 +60,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     //Fetch post based on postId
-    fetch(`https://sandernilsen.com/wp-json/wp/v2/posts/${postId}`)
+    fetch(`https://sandernilsen.com/wp-json/wp/v2/posts/${postId}?_embed`)
        .then((response) => {
             if (!response.ok) {
-               throw new Error('Failed to fetch post');
+                throw new Error('Failed to fetch post');
             }
             return response.json();
     })
     .then(async (post) => {
-        //Fetch featured image
-        const featuredImageUrl = await fetchFeaturedImageUrl(post.featured_media);
         loader.style.display = 'none';
         document.title = post.title.rendered;
-        
-        //Fetch author based on author ID
-        const authorId = post.author;
-        const authorResponse = await fetch(`https://sandernilsen.com/wp-json/wp/v2/users/${authorId}`);
-        if (!authorResponse.ok) {
-            throw new Error('Failed to fetch author');
-        }
 
-        const author = await authorResponse.json();
-        const authorName = author.name;
-        
-        //Fetch tag details based on tag IDs
-        const tagIds = post.tags; 
+        const featuredImage = post._embedded['wp:featuredmedia'];
+        const featuredImageUrl = featuredImage ? featuredImage[0].source_url : null;
+
+        const author = post._embedded.author[0];
+        const authorName = author ? author.name : 'Unknown Author';
+
+        const tagIds = post.tags;
         const tagPromises = tagIds.map(tagId =>
             fetch(`https://sandernilsen.com/wp-json/wp/v2/tags/${tagId}`)
         );
@@ -99,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h1 class="lp-color">${post.title.rendered}</h1>
                     <p class="author">Posted on ${new Date(post.date).toLocaleDateString()} by ${authorName}</p>
                     <p class="tags">${tagNames}</p>
-                    <img class="post-img" src="${featuredImageUrl}" alt="Main post Image" />
+                    ${featuredImageUrl ? `<img class="post-img" src="${featuredImageUrl}" alt="Main post Image" />` : ''}
                     <div class="post-wrapper">
                         <p class="lp-color">${post.content.rendered}</p>
                     </div>
@@ -118,6 +111,5 @@ document.addEventListener('DOMContentLoaded', () => {
         loader.style.display = 'none';
         console.error('Error fetching post:', error);
     });
-
-    }
-})
+}
+});

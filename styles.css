@@ -51,12 +51,24 @@ nav a {
     text-decoration: none;
     color: #303032;
     font-size: 20px;
-    padding-right: 20px;
+    position: relative;
+    padding: 20px 0px;
+    margin: 0px 20px;
 }
-
-nav a:hover {
-    text-decoration: underline;
-  }
+  
+nav a::before {
+    transition: 200ms;
+    height: 5px;
+    content:"";
+    position: absolute;
+    background-color: #303032;
+    width: 0%;
+    bottom: 10px;
+}
+  
+nav a:hover::before {
+    width: 100%;
+}  
 
 .hamburger-menu {
     display: none;
@@ -339,13 +351,13 @@ button:hover {
     }
   }
 
-  .previewimg {
+.previewimg {
     width: 272px; 
     height: 182px; 
     object-fit: cover;
   }
 
-  .modal-container {
+.modal-container {
     display: none;
     position: fixed;
     z-index: 999;
@@ -444,7 +456,7 @@ button:hover {
         background-color:#F1F0ED;
         box-shadow: 0px 9px 8px 0px rgba(0, 0, 0, 0.5);
         padding: 0px 0px 20px 20px;
-        gap: 20px;
+        gap: 40px;
     } 
 
     nav ul {

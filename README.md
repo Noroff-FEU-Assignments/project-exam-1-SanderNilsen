@@ -51,4 +51,4 @@ npm run start
 
 ## Live Website
 
-[LofotenPeaks](https://lofotenpeaks.netlify.app/)
+[LofotenPeaks](https://lofotenpeaks-blog.netlify.app/)
